@@ -12,6 +12,14 @@ class MarkerView: UIView {
     fileprivate var dataSource: MarkerViewDataSource!
     private var x = Double()
     private var y = Double()
+    private var zoomScale = Double()
+    
+    private var positionX = Double()
+    private var positionY = Double()
+    private var ratioLength = Double()
+    private var scaleLength = Double()
+    
+    private var markerTapGestureRecognizer = UITapGestureRecognizer()
     
     public func set(dataSource: MarkerViewDataSource, x: Double, y: Double) {
         NotificationCenter.default.addObserver(self, selector: #selector(frameSet),
@@ -21,13 +29,18 @@ class MarkerView: UIView {
         self.x = x
         self.y = y
         dataSource.scrollView.addSubview(self)
+        
+        markerTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(markerViewTap(_:)))
+        markerTapGestureRecognizer.delegate = self
+        self.addGestureRecognizer(markerTapGestureRecognizer)
     }
     
     @objc private func frameSet() {
-        let positionX = x * dataSource.zoomScale
-        let positionY = y * dataSource.zoomScale
-        let ratioLength = dataSource.rationHeight > dataSource.ratioWidth ? dataSource.rationHeight : dataSource.ratioWidth
-        let scaleLength = dataSource.zoomScaleHeight > dataSource.zoomScaleWidth ? dataSource.zoomScaleHeight : dataSource.zoomScaleWidth
+        positionX = x * dataSource.zoomScale
+        positionY = y * dataSource.zoomScale
+        ratioLength = dataSource.rationHeight > dataSource.ratioWidth ? dataSource.rationHeight : dataSource.ratioWidth
+        scaleLength = dataSource.zoomScaleHeight > dataSource.zoomScaleWidth ? dataSource.zoomScaleHeight : dataSource.zoomScaleWidth
+
         
         if dataSource.zoomScale > 1.0 {
             self.frame = CGRect(x: positionX, y: positionY, width: scaleLength, height: scaleLength)
@@ -37,4 +50,35 @@ class MarkerView: UIView {
         
         self.backgroundColor = UIColor.red
     }
+    
+    func zoom(scale: CGFloat) {
+        print(dataSource.ratioWidth)
+        
+        var translatedPoint: CGPoint = .zero
+        translatedPoint.x = CGFloat(x*Double(scale) - dataSource.ratioWidth*Double(scale))
+        translatedPoint.y = CGFloat(y*Double(scale) - dataSource.rationHeight*Double(scale))
+        
+        var destinationRect: CGRect = .zero
+        destinationRect.size.width = dataSource.scrollView.frame.width/scale
+        destinationRect.size.height = dataSource.scrollView.frame.height/scale
+        destinationRect.origin.x = translatedPoint.x
+        destinationRect.origin.y = translatedPoint.y
+        
+        UIView.animate(withDuration: 5.0, delay: 0.0, usingSpringWithDamping: 3.0, initialSpringVelocity: 0.66, options: [.allowUserInteraction], animations: {
+            self.dataSource.scrollView.zoom(to: destinationRect, animated: false)
+        }, completion: {
+            completed in
+            if let delegate = self.dataSource.scrollView.delegate, delegate.responds(to: #selector(UIScrollViewDelegate.scrollViewDidEndZooming(_:with:atScale:))), let view = delegate.viewForZooming?(in: self.dataSource.scrollView) {
+                delegate.scrollViewDidEndZooming!(self.dataSource.scrollView, with: view, atScale: 1.0)
+            }
+        })
+    }
 }
+
+extension MarkerView: UIGestureRecognizerDelegate {
+    @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        print("tap")
+        zoom(scale: 1)
+    }
+}
+

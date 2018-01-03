@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400)
         
         let markerView = MarkerView()
-        markerView.set(dataSource: markerDataSoucrce, x: 400, y: 500)
+        markerView.set(dataSource: markerDataSoucrce, x: 2000, y: 2000)
         
         setZoomParametersForSize(scrollView.bounds.size)
         recenterImage()
