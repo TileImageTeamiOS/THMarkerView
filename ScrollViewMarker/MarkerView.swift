@@ -54,15 +54,12 @@ class MarkerView: UIView {
     func zoom(scale: CGFloat) {
         print(dataSource.ratioWidth)
         
-        var translatedPoint: CGPoint = .zero
-        translatedPoint.x = CGFloat(x*Double(scale) - dataSource.ratioWidth*Double(scale))
-        translatedPoint.y = CGFloat(y*Double(scale) - dataSource.rationHeight*Double(scale))
-        
         var destinationRect: CGRect = .zero
         destinationRect.size.width = dataSource.scrollView.frame.width/scale
         destinationRect.size.height = dataSource.scrollView.frame.height/scale
-        destinationRect.origin.x = translatedPoint.x
-        destinationRect.origin.y = translatedPoint.y
+        destinationRect.origin.x = CGFloat(x - Double((self.dataSource.scrollView.frame.width/scale))/2)
+        destinationRect.origin.y = CGFloat(y - Double((self.dataSource.scrollView.frame.height/scale))/2)
+        
         
         UIView.animate(withDuration: 5.0, delay: 0.0, usingSpringWithDamping: 3.0, initialSpringVelocity: 0.66, options: [.allowUserInteraction], animations: {
             self.dataSource.scrollView.zoom(to: destinationRect, animated: false)
