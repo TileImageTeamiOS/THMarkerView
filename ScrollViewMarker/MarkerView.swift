@@ -21,18 +21,27 @@ class MarkerView: UIView {
     
     private var markerTapGestureRecognizer = UITapGestureRecognizer()
     
-    public func set(dataSource: MarkerViewDataSource, x: Double, y: Double) {
+    private var isAudioContent: Bool?
+    private var audioContentView: AudioContentView?
+    
+    public func set(dataSource: MarkerViewDataSource, x: Double, y: Double, zoomScale: Double,isAudioContent: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(frameSet),
                                                name: NSNotification.Name(rawValue: "scollViewAction"),
                                                object: nil)
         self.dataSource = dataSource
         self.x = x
         self.y = y
+        self.zoomScale = zoomScale
         dataSource.scrollView.addSubview(self)
         
         markerTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(markerViewTap(_:)))
         markerTapGestureRecognizer.delegate = self
         self.addGestureRecognizer(markerTapGestureRecognizer)
+        
+        // audio 세팅
+        self.isAudioContent = isAudioContent
+        audioContentView = dataSource.audioContentView
+        audioContentView?.isHidden = true
     }
     
     @objc private func frameSet() {
@@ -51,9 +60,12 @@ class MarkerView: UIView {
         self.backgroundColor = UIColor.red
     }
     
-    func zoom(scale: CGFloat) {
-        print(dataSource.ratioWidth)
-        
+    func setAudioContent(name: String, format: String) {
+        audioContentView?.setAudioPlayBox()
+        audioContentView?.setAudio(name: "bell", format: "mp3")
+    }
+    
+    private func zoom(scale: CGFloat) {
         var destinationRect: CGRect = .zero
         destinationRect.size.width = dataSource.scrollView.frame.width/scale
         destinationRect.size.height = dataSource.scrollView.frame.height/scale
@@ -74,8 +86,11 @@ class MarkerView: UIView {
 
 extension MarkerView: UIGestureRecognizerDelegate {
     @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        print("tap")
-        zoom(scale: 1)
+        zoom(scale: CGFloat(zoomScale))
+        
+        if isAudioContent! {
+            dataSource.audioContentView?.isHidden = false
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var audioContentView: AudioContentView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +19,14 @@ class ViewController: UIViewController {
         imageView.frame.size = (imageView.image?.size)!
         scrollView.delegate = self
         
-        let markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400)
+        let markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400, audioContentView: audioContentView)
         
-        let markerView = MarkerView()
-        markerView.set(dataSource: markerDataSoucrce, x: 2000, y: 2000)
+        let markerView1 = MarkerView()
+        markerView1.set(dataSource: markerDataSoucrce, x: 2000, y: 2000, zoomScale: 1, isAudioContent: true)
+        markerView1.setAudioContent(name: "bell", format: "mp3")
+        
+        let markerView2 = MarkerView()
+        markerView2.set(dataSource: markerDataSoucrce, x: 3000, y: 3000, zoomScale: 0.5, isAudioContent: false)
         
         setZoomParametersForSize(scrollView.bounds.size)
         recenterImage()
@@ -72,16 +77,3 @@ extension ViewController: UIScrollViewDelegate {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "scollViewAction"), object: nil, userInfo: nil)
     }
 }
-
-//extension ViewController: UIGestureRecognizerDelegate {
-//    @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
-//        print("tap")
-//    }
-//}
-
-//extension CGSize {
-//    public func divide(double: Double) -> CGSize{
-//        return CGSize(width: Double(self.width)/double, height: Double(self.height)/double)
-//    }
-//}
-
