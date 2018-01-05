@@ -39,13 +39,23 @@
                                     <constraint firstAttribute="height" constant="100" id="vjY-VS-y8p"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryg-5b-cV6" customClass="VideoContentView" customModule="ScrollViewMarker" customModuleProvider="target">
+                                <rect key="frame" x="67" y="369" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="84e-l0-zBA"/>
+                                    <constraint firstAttribute="height" constant="128" id="G8u-xT-CZi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AjA-cr-8j0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2En-G7-hy5"/>
                             <constraint firstItem="MIq-q8-M2a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="5KO-aR-omL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ryg-5b-cV6" secondAttribute="bottom" constant="170" id="GrH-6W-KwU"/>
                             <constraint firstItem="AjA-cr-8j0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XDL-Qx-wOF"/>
                             <constraint firstItem="AjA-cr-8j0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="XEx-Uv-Wqb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ryg-5b-cV6" secondAttribute="trailing" constant="68" id="fOd-Fl-Jxc"/>
                             <constraint firstItem="AjA-cr-8j0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g4U-fI-fvi"/>
                             <constraint firstItem="MIq-q8-M2a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="x8e-m0-Hjv"/>
                         </constraints>
@@ -55,6 +65,7 @@
                         <outlet property="audioContentView" destination="MIq-q8-M2a" id="wNw-aB-Hai"/>
                         <outlet property="imageView" destination="hKg-FN-Vdb" id="N9n-Gi-vyT"/>
                         <outlet property="scrollView" destination="AjA-cr-8j0" id="DRw-Bi-U1i"/>
+                        <outlet property="videoContentView" destination="ryg-5b-cV6" id="mPh-GX-Pfq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

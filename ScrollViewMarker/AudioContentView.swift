@@ -5,7 +5,6 @@
 //  Created by Seong ho Hong on 2018. 1. 4..
 //  Copyright © 2018년 Seong ho Hong. All rights reserved.
 //
-
 import UIKit
 import AVFoundation
 
@@ -23,9 +22,9 @@ class AudioContentView: UIView {
     private var audioPlayer: AVAudioPlayer?
     private var audioIntever = TimeInterval()
     
-    func setAudioPlayBox() {
+    func setAudioPlayer() {
         //버튼 세팅
-        audioButton.frame = CGRect(x: CGFloat(25),
+        audioButton.frame = CGRect(x: CGFloat(Double(self.frame.width - 50)/2),
                                    y: CGFloat(10),
                                    width: CGFloat(50),
                                    height: CGFloat(50))
@@ -78,4 +77,3 @@ class AudioContentView: UIView {
         }
     }
 }
-
