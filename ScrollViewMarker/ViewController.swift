@@ -45,10 +45,6 @@ class ViewController: UIViewController {
         recenterImage()
     }
     
-    func markSet() {
-        
-    }
-    
     func recenterImage() {
         let scrollViewSize = scrollView.bounds.size
         let imageSize = imageView.frame.size
