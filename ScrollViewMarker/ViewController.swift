@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var audioContentView: AudioContentView!
     @IBOutlet weak var videoContentView: VideoContentView!
+    var textContentView: TextContentView!
 
     var markerDataSoucrce:MarkerViewDataSource?
     
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
         scrollView.contentInsetAdjustmentBehavior = .never
         imageView.frame.size = (imageView.image?.size)!
         scrollView.delegate = self
+        
+        textContentView = TextContentView(frame: CGRect(x: self.view.frame.height - 100 , y: 0, width: self.view.frame.width, height: 200))
         
         markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400, audioContentView: audioContentView, videoContentView: videoContentView)
         

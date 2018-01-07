@@ -16,6 +16,8 @@
 		4E2F84271FFA110600511B4C /* MarkerViewDataSoucrce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2F84261FFA110600511B4C /* MarkerViewDataSoucrce.swift */; };
 		4E2F84291FFA252900511B4C /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2F84281FFA252900511B4C /* MarkerView.swift */; };
 		4E43B3061FFF1EF400717B95 /* seunga.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E43B3051FFF1EF400717B95 /* seunga.mp4 */; };
+		4E43B318200219BC00717B95 /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B317200219BC00717B95 /* TextContentView.swift */; };
+		4E43B31A20021F9000717B95 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B31920021F9000717B95 /* Constant.swift */; };
 		4E91077C1FFD0CF7009DB1C6 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E91077B1FFD0CF7009DB1C6 /* water.mp3 */; };
 		4E9107801FFE0210009DB1C6 /* AudioContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91077F1FFE0210009DB1C6 /* AudioContentView.swift */; };
 		4E9107821FFE10FF009DB1C6 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E9107811FFE10FF009DB1C6 /* bell.mp3 */; };
@@ -34,6 +36,8 @@
 		4E2F84261FFA110600511B4C /* MarkerViewDataSoucrce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViewDataSoucrce.swift; sourceTree = "<group>"; };
 		4E2F84281FFA252900511B4C /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		4E43B3051FFF1EF400717B95 /* seunga.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = seunga.mp4; sourceTree = "<group>"; };
+		4E43B317200219BC00717B95 /* TextContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
+		4E43B31920021F9000717B95 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4E91077B1FFD0CF7009DB1C6 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		4E91077F1FFE0210009DB1C6 /* AudioContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentView.swift; sourceTree = "<group>"; };
 		4E9107811FFE10FF009DB1C6 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				4E2F84281FFA252900511B4C /* MarkerView.swift */,
 				4E91077F1FFE0210009DB1C6 /* AudioContentView.swift */,
 				4E9107851FFF1581009DB1C6 /* VideoContentView.swift */,
+				4E43B317200219BC00717B95 /* TextContentView.swift */,
 			);
 			path = ScrollViewMarker;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 				4E9107811FFE10FF009DB1C6 /* bell.mp3 */,
 				4E91077B1FFD0CF7009DB1C6 /* water.mp3 */,
 				4E2F841B1FF9DB2E00511B4C /* Assets.xcassets */,
+				4E43B31920021F9000717B95 /* Constant.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 			files = (
 				4E2F84141FF9DB2E00511B4C /* ViewController.swift in Sources */,
 				4E9107801FFE0210009DB1C6 /* AudioContentView.swift in Sources */,
+				4E43B31A20021F9000717B95 /* Constant.swift in Sources */,
 				4E2F84271FFA110600511B4C /* MarkerViewDataSoucrce.swift in Sources */,
+				4E43B318200219BC00717B95 /* TextContentView.swift in Sources */,
 				4E2F84121FF9DB2E00511B4C /* AppDelegate.swift in Sources */,
 				4E2F84291FFA252900511B4C /* MarkerView.swift in Sources */,
 				4E2F841A1FF9DB2E00511B4C /* ScrollViewMarker.xcdatamodeld in Sources */,
