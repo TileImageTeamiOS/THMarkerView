@@ -6,4 +6,8 @@
 //  Copyright © 2018년 Seong ho Hong. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TextContentView: UIScrollView {
+    
+}
