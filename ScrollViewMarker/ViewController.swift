@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         imageView.frame.size = (imageView.image?.size)!
         scrollView.delegate = self
         
-        textContentView = TextContentView(frame: CGRect(x: self.view.frame.height - 100 , y: 0, width: self.view.frame.width, height: 200))
-        
         markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400, audioContentView: audioContentView, videoContentView: videoContentView)
         
         let markerView1 = MarkerView()
