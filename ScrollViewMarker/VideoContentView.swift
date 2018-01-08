@@ -39,6 +39,7 @@ class VideoContentView: UIView {
         self.addGestureRecognizer(videoPanGestureRecognizer)
         self.backgroundColor = UIColor.black
         
+        // 전체화면 버튼 세팅
         fullscreenButton.frame = CGRect(x: self.frame.width - 30, y: self.frame.height - 30, width: 20, height: 20)
         fullscreenButton.backgroundColor = UIColor.white
         fullscreenButton.layer.cornerRadius = 3
@@ -46,6 +47,7 @@ class VideoContentView: UIView {
         fullscreenButton.setImage(#imageLiteral(resourceName: "fullscreen"), for: .normal)
         fullscreenButton.addTarget(self, action: #selector(pressfullscreenButton(_ :)), for: .touchUpInside)
         
+        // 플레이 버튼 세팅
         videoButton.frame = CGRect(x: self.frame.width/2 - 25, y: self.frame.height/2 - 25, width: 50, height: 50)
         videoButton.backgroundColor = UIColor.white
         videoButton.layer.cornerRadius = 3
@@ -160,7 +162,6 @@ extension VideoContentView: UIGestureRecognizerDelegate {
         }
         
         if gestureRecognizer.state == .ended {
-            print("remove")
             if self.center.x >= (self.superview?.frame.width)!/2 + (self.superview?.frame.width)!/4 {
                 self.center = CGPoint(x: (self.superview?.frame.width)! + self.frame.width/3  , y: self.center.y)
             } else {
