@@ -71,7 +71,7 @@ class VideoContentView: UIView {
         }
     }
     
-    func setVideoUrl(url: URL) {
+    func setVideo(url: URL) {
         player =  AVPlayer(url: url)
         player.allowsExternalPlayback = false
         
@@ -83,7 +83,7 @@ class VideoContentView: UIView {
         self.addSubview(videoButton)
     }
     
-    private func playVideo() {
+    func playVideo() {
         playStatus = .play
         videoButton.setImage(#imageLiteral(resourceName: "pauseButton"), for: .normal)
         player.play()
@@ -91,19 +91,19 @@ class VideoContentView: UIView {
         hideStatus()
     }
     
-    private func pauseVideo() {
+    func pauseVideo() {
         playStatus = .pause
         videoButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
         player.pause()
     }
     
-    private func hideStatus() {
+    func hideStatus() {
         fullscreenButton.isHidden = true
         videoButton.isHidden = true
         videoStatus = .show
     }
     
-    private func showStatus() {
+    func showStatus() {
         fullscreenButton.isHidden = false
         videoButton.isHidden = false
         videoStatus = .hide
