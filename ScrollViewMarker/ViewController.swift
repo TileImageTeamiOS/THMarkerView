@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         markerView1.set(dataSource: markerDataSoucrce!, x: 2000, y: 2000, zoomScale: 1, isTitleContent: true, isAudioContent: true, isVideoContent: false, isTextContent: false)
         markerView1.setTitle(title: "첫번째 마커")
         markerView1.setAudioContent(url: Bundle.main.url(forResource: "water", withExtension: "mp3")!)
-        markerView1.backgroundColor = UIColor.red
+        markerView1.setMarkerImage(markerImage: #imageLiteral(resourceName: "marker"))
         
         let markerView2 = MarkerView()
         markerView2.set(dataSource: markerDataSoucrce!, x: 3000, y: 3000, zoomScale: 0.5, isTitleContent: true, isAudioContent: false, isVideoContent: false, isTextContent: false)

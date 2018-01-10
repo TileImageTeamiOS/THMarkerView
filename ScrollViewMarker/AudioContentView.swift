@@ -24,7 +24,8 @@ public class AudioContentView: UIView {
     var audioIntever = TimeInterval()
 
     func setAudioPlayer() {
-        //버튼 세팅
+        self.backgroundColor = UIColor.white
+        
         audioButton.frame.origin = CGPoint.zero
         audioButton.frame.size = self.frame.size
         audioButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
@@ -32,20 +33,6 @@ public class AudioContentView: UIView {
 
         self.addSubview(audioButton)
         self.addSubview(audioCurrentTime)
-    }
-
-    func setAudio(name: String, format: String) {
-        audioUrl = Bundle.main.url(forResource: name, withExtension: format)
-
-        if let url = audioUrl {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                guard let sound = audioPlayer else { return }
-                sound.prepareToPlay()
-            } catch let error {
-                print(error)
-            }
-        }
     }
 
     func setAudio(url: URL) {

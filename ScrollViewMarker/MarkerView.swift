@@ -13,17 +13,15 @@ public class MarkerView: UIView {
     var x = CGFloat()
     var y = CGFloat()
     var zoomScale = CGFloat()
+    var imageView: UIImageView?
     
     private var markerTapGestureRecognizer = UITapGestureRecognizer()
     
-    //marker content 존재 여부
     private var isTitleContent = false
     private var isAudioContent = false
     private var isVideoContent = false
     private var isTextContent = false
     
-    private var touchEnable = true
-    private var imageView : UIImageView!
     private var destinationRect = CGRect()
     
     var videoURL: URL?
@@ -33,11 +31,6 @@ public class MarkerView: UIView {
     var textLink: String?
     var textContent: String?
     
-    public func initial(){
-        dataSource.audioContentView?.isHidden = true
-        dataSource.videoContentView?.isHidden = true
-
-    }
     public func set(dataSource: MarkerViewDataSource, x: CGFloat, y: CGFloat, zoomScale: CGFloat, isTitleContent: Bool, isAudioContent: Bool, isVideoContent: Bool, isTextContent: Bool) {
         // marker 위치 설정후 scrollview에 추가
         self.dataSource = dataSource
@@ -62,29 +55,14 @@ public class MarkerView: UIView {
         self.isAudioContent = isAudioContent
         self.isVideoContent = isVideoContent
         self.isTextContent = isTextContent
-    
-        // 이미지 설정
-//        imageView = UIImageView(frame: self.bounds)
-        
-        //기본 content 이미지 설정
-        dataSource.videoContentView?.setVideoPlayer()
-        dataSource.audioContentView?.setAudioPlayer()
-        dataSource.textContentView?.setTextContent()
     }
-    @objc func back(){
-        touchEnable = true
-        self.isHidden = false
-    }
-    
-    func click(){
-        self.isHidden = true
-        touchEnable = false
-    }
-    
-    func removeImage(){
-        for view in self.subviews{
-            view.removeFromSuperview()
-        }
+
+    // marker image 설정
+    func setMarkerImage(markerImage: UIImage) {
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        imageView?.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView?.image = markerImage
+        self.addSubview(imageView!)
     }
     
     // 비디오 url 설정
@@ -138,10 +116,8 @@ public class MarkerView: UIView {
 
 extension MarkerView: UIGestureRecognizerDelegate {
     @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        if touchEnable {
-            dataSource.zoom(destinationRect: destinationRect)
-            markerContentSet()
-        }
+        dataSource.zoom(destinationRect: destinationRect)
+        markerContentSet()
     }
 }
 

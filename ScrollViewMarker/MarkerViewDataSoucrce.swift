@@ -32,6 +32,10 @@ public struct MarkerViewDataSource {
         self._audioContentView?.isHidden = true
         self._videoContentView?.isHidden = true
         self._textContentView?.isHidden = true
+        
+        videoContentView?.setVideoPlayer()
+        audioContentView?.setAudioPlayer()
+        textContentView?.setTextContent()
     }
 
     var scrollView: UIScrollView {
@@ -98,6 +102,10 @@ extension MarkerViewDataSource {
             markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale, y: markerView.y * scrollView.zoomScale, width: scaleLength, height: scaleLength)
         } else {
             markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale, y: markerView.y * scrollView.zoomScale, width: ratioLength, height: ratioLength)
+        }
+        
+        if markerView.imageView != nil {
+            markerView.imageView?.frame.size = markerView.frame.size
         }
     }
 }
