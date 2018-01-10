@@ -14,14 +14,14 @@ enum AudioStatus: Int {
     case finish
 }
 
-class AudioContentView: UIView {
+public class AudioContentView: UIView {
     var audioButton = UIButton()
     var audioCurrentTime = UILabel()
     var audioStatus = AudioStatus.stop
 
-    private var audioUrl: URL?
-    private var audioPlayer: AVAudioPlayer?
-    private var audioIntever = TimeInterval()
+    var audioUrl: URL?
+    var audioPlayer: AVAudioPlayer?
+    var audioIntever = TimeInterval()
 
     func setAudioPlayer() {
         //버튼 세팅
@@ -87,7 +87,7 @@ class AudioContentView: UIView {
 }
 
 extension AudioContentView: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         audioStatus = .finish
         audioButton.setImage(#imageLiteral(resourceName: "replay"), for: .normal)
     }

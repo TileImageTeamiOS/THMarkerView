@@ -20,7 +20,7 @@ enum VideoStatus: Int {
     case hide
 }
 
-class VideoContentView: UIView {
+public class VideoContentView: UIView {
     private var videoTapGestureRecognizer = UITapGestureRecognizer()
     private var videoPanGestureRecognizer = UIPanGestureRecognizer()
     var player =  AVPlayer()

@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var videoContentView: VideoContentView!
     var textContentView = TextContentView()
     var titleLabel = UILabel()
-
     
+    var markerViewArray = [MarkerView]()
     var markerDataSoucrce:MarkerViewDataSource?
     
     override func viewDidLoad() {
@@ -39,19 +39,25 @@ class ViewController: UIViewController {
         markerDataSoucrce = MarkerViewDataSource(scrollView: scrollView, imageView: imageView, ratioByImage: 400, titleLabelView: titleLabel, audioContentView: audioContentView, videoContentView: videoContentView, textContentView: textContentView)
         
         let markerView1 = MarkerView()
-        markerView1.set(dataSource: markerDataSoucrce!, x: 2000, y: 2000, zoomScale: 1, isTitleContent: false, isAudioContent: true, isVideoContent: false, isTextContent: false)
+        markerView1.set(dataSource: markerDataSoucrce!, x: 2000, y: 2000, zoomScale: 1, isTitleContent: true, isAudioContent: true, isVideoContent: false, isTextContent: false)
+        markerView1.setTitle(title: "첫번째 마커")
         markerView1.setAudioContent(url: Bundle.main.url(forResource: "water", withExtension: "mp3")!)
         markerView1.backgroundColor = UIColor.red
         
         let markerView2 = MarkerView()
-        markerView2.set(dataSource: markerDataSoucrce!, x: 3000, y: 3000, zoomScale: 0.5, isTitleContent: false, isAudioContent: false, isVideoContent: false, isTextContent: false)
+        markerView2.set(dataSource: markerDataSoucrce!, x: 3000, y: 3000, zoomScale: 0.5, isTitleContent: true, isAudioContent: false, isVideoContent: false, isTextContent: false)
+        markerView2.setTitle(title: "두번째 마커")
         markerView2.backgroundColor = UIColor.blue
 
         let markerView3 = MarkerView()
-        markerView3.set(dataSource: markerDataSoucrce!, x: 4000, y: 5000, zoomScale: 0.8, isTitleContent: false, isAudioContent: false, isVideoContent: true, isTextContent: false)
+        markerView3.set(dataSource: markerDataSoucrce!, x: 4000, y: 5000, zoomScale: 0.8, isTitleContent: true, isAudioContent: false, isVideoContent: true, isTextContent: false)
+        markerView3.setTitle(title: "세번째 마커")
         markerView3.setVideoContent(url: Bundle.main.url(forResource: "seunga", withExtension: "mp4")!)
         markerView3.backgroundColor = UIColor.yellow
         
+        markerViewArray.append(markerView1)
+        markerViewArray.append(markerView2)
+        markerViewArray.append(markerView3)
         setZoomParametersForSize(scrollView.bounds.size)
         recenterImage()
     }
@@ -82,6 +88,10 @@ class ViewController: UIViewController {
         scrollView.zoomScale = minScale
     }
 
+    @IBAction func backButtonAction(_ sender: Any) {
+        markerDataSoucrce?.reset()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,6 +104,8 @@ extension ViewController: UIScrollViewDelegate {
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "scollViewAction"), object: nil, userInfo: nil)
+        markerViewArray.map { marker in
+            markerDataSoucrce?.framSet(markerView: marker)
+        }
     }
 }

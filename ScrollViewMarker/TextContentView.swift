@@ -13,7 +13,7 @@ enum ContentStatus: Int {
     case hide
 }
 
-class TextContentView: UIView {
+public class TextContentView: UIView {
     var textContentResizeView = UIView()
     private var resizeTapGestureRecognizer = UITapGestureRecognizer()
     private var linkLabelTapGestureRecognizer = UITapGestureRecognizer()
