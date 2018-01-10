@@ -65,7 +65,6 @@ class MarkerView: UIView {
             self.frame = CGRect(x: positionX, y: positionY, width: ratioLength, height: ratioLength)
         }
 
-        
         self.backgroundColor = UIColor.red
     }
     
