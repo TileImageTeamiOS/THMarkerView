@@ -8,64 +8,77 @@
 
 import UIKit
 
-public struct MarkerViewDataSource {
-    private var _scrollView: UIScrollView
-    private var _imageView: UIImageView
-    private var _ratioByImage: Double
-    private var _ratioSize: CGSize
-    private var _audioContentView: AudioContentView?
-    private var _videoContentView: VideoContentView?
-    private var _textContentView: TextContentView?
-    private var _titleLabelView: UILabel?
+public protocol MarkerViewDataSource {
+    var scrollView: UIScrollView { get }
+    var imageView: UIImageView { get }
+    var audioContentView: AudioContentView? { get }
+    var videoContentView: VideoContentView? { get }
+    var textContentView: TextContentView? { get }
+    var titleLabelView: UILabel? { get }
+    var ratioSize: CGSize { get }
 
-
-    init(scrollView: UIScrollView, imageView: UIImageView, ratioByImage: Double, titleLabelView: UILabel?, audioContentView: AudioContentView?, videoContentView: VideoContentView?, textContentView: TextContentView?) {
-        self._scrollView = scrollView
-        self._imageView = imageView
-        self._ratioByImage = ratioByImage
-        self._ratioSize = imageView.frame.size.divide(double: ratioByImage)
-        self._titleLabelView = titleLabelView
-        self._audioContentView = audioContentView
-        self._videoContentView = videoContentView
-        self._textContentView = textContentView
-        self._titleLabelView?.isHidden = true
-        self._audioContentView?.isHidden = true
-        self._videoContentView?.isHidden = true
-        self._textContentView?.isHidden = true
-        
-        videoContentView?.setVideoPlayer()
-        audioContentView?.setAudioPlayer()
-        textContentView?.setTextContent()
-    }
-
-    var scrollView: UIScrollView {
-        get{return _scrollView}
-    }
-    
-    var imageView: UIImageView {
-        get{return _imageView}
-    }
-    
-    var ratioSize: CGSize {
-        get{return _ratioSize}
-    }
-
-    var titleLabelView: UILabel? {
-        get {return _titleLabelView}
-    }
-
-    var audioContentView: AudioContentView? {
-        get {return _audioContentView}
-    }
-
-    var videoContentView: VideoContentView? {
-        get {return _videoContentView}
-    }
-
-    var textContentView: TextContentView? {
-        get {return _textContentView}
-    }
+    var downSizeRatio: CGFloat { get set }
+    var ratioByImage: Double { get set }
 }
+
+//public struct MarkerViewDataSource {
+//    private var _scrollView: UIScrollView
+//    private var _imageView: UIImageView
+//    private var _ratioByImage: Double
+//    private var _ratioSize: CGSize
+//    private var _audioContentView: AudioContentView?
+//    private var _videoContentView: VideoContentView?
+//    private var _textContentView: TextContentView?
+//    private var _titleLabelView: UILabel?
+//
+//
+//    init(scrollView: UIScrollView, imageView: UIImageView, ratioByImage: Double, titleLabelView: UILabel?, audioContentView: AudioContentView?, videoContentView: VideoContentView?, textContentView: TextContentView?) {
+//        self._scrollView = scrollView
+//        self._imageView = imageView
+//        self._ratioByImage = ratioByImage
+//        self._ratioSize = imageView.frame.size.divide(double: ratioByImage)
+//        self._titleLabelView = titleLabelView
+//        self._audioContentView = audioContentView
+//        self._videoContentView = videoContentView
+//        self._textContentView = textContentView
+//        self._titleLabelView?.isHidden = true
+//        self._audioContentView?.isHidden = true
+//        self._videoContentView?.isHidden = true
+//        self._textContentView?.isHidden = true
+//
+//        videoContentView?.setVideoPlayer()
+//        audioContentView?.setAudioPlayer()
+//        textContentView?.setTextContent()
+//    }
+//
+//    var scrollView: UIScrollView {
+//        get{return _scrollView}
+//    }
+//
+//    var imageView: UIImageView {
+//        get{return _imageView}
+//    }
+//
+//    var ratioSize: CGSize {
+//        get{return _ratioSize}
+//    }
+//
+//    var titleLabelView: UILabel? {
+//        get {return _titleLabelView}
+//    }
+//
+//    var audioContentView: AudioContentView? {
+//        get {return _audioContentView}
+//    }
+//
+//    var videoContentView: VideoContentView? {
+//        get {return _videoContentView}
+//    }
+//
+//    var textContentView: TextContentView? {
+//        get {return _textContentView}
+//    }
+//}
 
 extension MarkerViewDataSource {
     // 해당 위치로 줌
@@ -99,9 +112,9 @@ extension MarkerViewDataSource {
         let scaleLength = ratioLength/scrollView.zoomScale
         
         if scrollView.zoomScale > 1 {
-            markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale, y: markerView.y * scrollView.zoomScale, width: scaleLength, height: scaleLength)
+            markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale - scaleLength/2, y: markerView.y * scrollView.zoomScale - scaleLength/2, width: scaleLength, height: scaleLength)
         } else {
-            markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale, y: markerView.y * scrollView.zoomScale, width: ratioLength, height: ratioLength)
+            markerView.frame = CGRect(x: markerView.x * scrollView.zoomScale - ratioLength/2, y: markerView.y * scrollView.zoomScale - ratioLength/2, width: ratioLength, height: ratioLength)
         }
         
         if markerView.imageView != nil {

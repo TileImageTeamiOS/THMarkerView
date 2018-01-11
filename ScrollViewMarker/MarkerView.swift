@@ -81,7 +81,7 @@ public class MarkerView: UIView {
     }
     
     // text string 설정
-    func setText(title: String, link: String, content: String) {
+    func setText(title: String?, link: String?, content: String?) {
         self.textTitle = title
         self.textLink = link
         self.textContent = content

@@ -50,9 +50,10 @@ class ViewController: UIViewController {
         markerView2.backgroundColor = UIColor.blue
 
         let markerView3 = MarkerView()
-        markerView3.set(dataSource: markerDataSoucrce!, x: 4000, y: 5000, zoomScale: 0.8, isTitleContent: true, isAudioContent: false, isVideoContent: true, isTextContent: false)
+        markerView3.set(dataSource: markerDataSoucrce!, x: 4000, y: 5000, zoomScale: 0.8, isTitleContent: true, isAudioContent: false, isVideoContent: true, isTextContent: true)
         markerView3.setTitle(title: "세번째 마커")
         markerView3.setVideoContent(url: Bundle.main.url(forResource: "seunga", withExtension: "mp4")!)
+        markerView3.setText(title: nil, link: nil, content: "kgjahkgjadsl;gjadsl;kgjl;adkshl;kdan;kldab;alfkbasdkjadsvk;adfb;kladv;lkadvkl;axcngkdfhgkl;ajglk;sadjlg;kasdl;kgalx;kcvl;akgl;adksgl;kadsgjl;dksjgl;ksjglk;sdjvl;kal;kadjlk;adjlak;dgjakl;gjal;knalk;vnal;dkval;dkgl;aksdgjl;asdkjl;akjvl;asjlad;ksv")
         markerView3.backgroundColor = UIColor.yellow
         
         markerViewArray.append(markerView1)

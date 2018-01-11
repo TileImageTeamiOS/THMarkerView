@@ -87,17 +87,25 @@ extension TextContentView: UIGestureRecognizerDelegate {
         if contentStatus == .hide {
             contentStatus = .show
             
-            UIView.animate(withDuration: 0.5, animations: {
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 400, width: (self.superview?.frame.width)!, height: 400)
+//                self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+//                })
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 400, width: (self.superview?.frame.width)!, height: 400)
                 self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-                })
+            })
         } else {
             contentStatus = .hide
-            
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 100, width: (self.superview?.frame.width)!, height: 100)
                 self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
             })
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 100, width: (self.superview?.frame.width)!, height: 100)
+//                self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+//            })
         }
     }
     
