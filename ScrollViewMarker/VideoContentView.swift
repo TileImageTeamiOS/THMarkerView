@@ -20,7 +20,7 @@ enum VideoStatus: Int {
     case hide
 }
 
-class VideoContentView: UIView {
+public class VideoContentView: UIView {
     private var videoTapGestureRecognizer = UITapGestureRecognizer()
     private var videoPanGestureRecognizer = UIPanGestureRecognizer()
     var player =  AVPlayer()
@@ -54,21 +54,6 @@ class VideoContentView: UIView {
         videoButton.layer.opacity = 0.5
         videoButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
         videoButton.addTarget(self, action: #selector(pressVideoButton(_ :)), for: .touchUpInside)
-    }
-    
-    func setVideo(name: String, format: String) {
-        let videoUrl = Bundle.main.url(forResource: name, withExtension: format)
-        if let url = videoUrl {
-            player =  AVPlayer(url: url)
-            player.allowsExternalPlayback = false
-            
-            let layer: AVPlayerLayer = AVPlayerLayer(player: player)
-            layer.frame = self.bounds
-            layer.videoGravity = AVLayerVideoGravity.resizeAspect
-            self.layer.addSublayer(layer)
-            self.addSubview(fullscreenButton)
-            self.addSubview(videoButton)
-        }
     }
     
     func setVideo(url: URL) {
