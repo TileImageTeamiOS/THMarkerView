@@ -16,7 +16,7 @@
 		4E3CFE812005DD6F0019993C /* VideoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CFE7D2005DD6E0019993C /* VideoContentView.swift */; };
 		4E3CFE822005DD6F0019993C /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CFE7E2005DD6E0019993C /* TextContentView.swift */; };
 		4E3CFE832005DD6F0019993C /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CFE7F2005DD6F0019993C /* MarkerView.swift */; };
-		4E3CFE842005DD6F0019993C /* MarkerViewDataSoucrce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CFE802005DD6F0019993C /* MarkerViewDataSoucrce.swift */; };
+		4E3CFE842005DD6F0019993C /* MarkerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CFE802005DD6F0019993C /* MarkerViewDataSource.swift */; };
 		4E43B3061FFF1EF400717B95 /* seunga.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E43B3051FFF1EF400717B95 /* seunga.mp4 */; };
 		4E43B31A20021F9000717B95 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E43B31920021F9000717B95 /* Constant.swift */; };
 		4E91077C1FFD0CF7009DB1C6 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E91077B1FFD0CF7009DB1C6 /* water.mp3 */; };
@@ -35,7 +35,7 @@
 		4E3CFE7D2005DD6E0019993C /* VideoContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoContentView.swift; sourceTree = "<group>"; };
 		4E3CFE7E2005DD6E0019993C /* TextContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
 		4E3CFE7F2005DD6F0019993C /* MarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
-		4E3CFE802005DD6F0019993C /* MarkerViewDataSoucrce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerViewDataSoucrce.swift; sourceTree = "<group>"; };
+		4E3CFE802005DD6F0019993C /* MarkerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerViewDataSource.swift; sourceTree = "<group>"; };
 		4E43B3051FFF1EF400717B95 /* seunga.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = seunga.mp4; sourceTree = "<group>"; };
 		4E43B31920021F9000717B95 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4E91077B1FFD0CF7009DB1C6 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				4E2F841D1FF9DB2E00511B4C /* LaunchScreen.storyboard */,
 				4E2F84201FF9DB2E00511B4C /* Info.plist */,
 				4E3CFE7F2005DD6F0019993C /* MarkerView.swift */,
-				4E3CFE802005DD6F0019993C /* MarkerViewDataSoucrce.swift */,
+				4E3CFE802005DD6F0019993C /* MarkerViewDataSource.swift */,
 				4E3CFE7E2005DD6E0019993C /* TextContentView.swift */,
 				4E3CFE7D2005DD6E0019993C /* VideoContentView.swift */,
 				4E3CFE712005DC650019993C /* AudioContentView.swift */,
@@ -175,7 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2F84141FF9DB2E00511B4C /* ViewController.swift in Sources */,
-				4E3CFE842005DD6F0019993C /* MarkerViewDataSoucrce.swift in Sources */,
+				4E3CFE842005DD6F0019993C /* MarkerViewDataSource.swift in Sources */,
 				4E3CFE832005DD6F0019993C /* MarkerView.swift in Sources */,
 				4E3CFE822005DD6F0019993C /* TextContentView.swift in Sources */,
 				4E3CFE772005DC650019993C /* AudioContentView.swift in Sources */,

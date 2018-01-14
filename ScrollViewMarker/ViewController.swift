@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var titleLabel = UILabel()
     
     var markerViewArray = [MarkerView]()
-    var markerDataSoucrce:MarkerViewDataSource?
+    var markerDataSoucrce: MarkerViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         markerView3.set(dataSource: markerDataSoucrce!, x: 4000, y: 5000, zoomScale: 0.8, isTitleContent: true, isAudioContent: false, isVideoContent: true, isTextContent: true)
         markerView3.setTitle(title: "세번째 마커")
         markerView3.setVideoContent(url: Bundle.main.url(forResource: "seunga", withExtension: "mp4")!)
-        markerView3.setText(title: nil, link: nil, content: "kgjahkgjadsl;gjadsl;kgjl;adkshl;kdan;kldab;alfkbasdkjadsvk;adfb;kladv;lkadvkl;axcngkdfhgkl;ajglk;sadjlg;kasdl;kgalx;kcvl;akgl;adksgl;kadsgjl;dksjgl;ksjglk;sdjvl;kal;kadjlk;adjlak;dgjakl;gjal;knalk;vnal;dkval;dkgl;aksdgjl;asdkjl;akjvl;asjlad;ksv")
+        markerView3.setText(title: nil, link: nil, content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
         markerView3.backgroundColor = UIColor.yellow
         
         markerViewArray.append(markerView1)
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func backButtonAction(_ sender: Any) {
-        markerDataSoucrce?.reset()
+        markerDataSoucrce.reset()
     }
     
     override func didReceiveMemoryWarning() {
