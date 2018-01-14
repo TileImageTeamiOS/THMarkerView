@@ -14,17 +14,18 @@ enum AudioStatus: Int {
     case finish
 }
 
-class AudioContentView: UIView {
+public class AudioContentView: UIView {
     var audioButton = UIButton()
     var audioCurrentTime = UILabel()
     var audioStatus = AudioStatus.stop
 
-    private var audioUrl: URL?
-    private var audioPlayer: AVAudioPlayer?
-    private var audioIntever = TimeInterval()
+    var audioUrl: URL?
+    var audioPlayer: AVAudioPlayer?
+    var audioIntever = TimeInterval()
 
     func setAudioPlayer() {
-        //버튼 세팅
+        self.backgroundColor = UIColor.white
+        
         audioButton.frame.origin = CGPoint.zero
         audioButton.frame.size = self.frame.size
         audioButton.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
@@ -32,20 +33,6 @@ class AudioContentView: UIView {
 
         self.addSubview(audioButton)
         self.addSubview(audioCurrentTime)
-    }
-
-    func setAudio(name: String, format: String) {
-        audioUrl = Bundle.main.url(forResource: name, withExtension: format)
-
-        if let url = audioUrl {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                guard let sound = audioPlayer else { return }
-                sound.prepareToPlay()
-            } catch let error {
-                print(error)
-            }
-        }
     }
 
     func setAudio(url: URL) {
@@ -87,7 +74,7 @@ class AudioContentView: UIView {
 }
 
 extension AudioContentView: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         audioStatus = .finish
         audioButton.setImage(#imageLiteral(resourceName: "replay"), for: .normal)
     }

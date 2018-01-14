@@ -13,7 +13,7 @@ enum ContentStatus: Int {
     case hide
 }
 
-class TextContentView: UIView {
+public class TextContentView: UIView {
     var textContentResizeView = UIView()
     private var resizeTapGestureRecognizer = UITapGestureRecognizer()
     private var linkLabelTapGestureRecognizer = UITapGestureRecognizer()
@@ -27,7 +27,8 @@ class TextContentView: UIView {
     
     func setTextContent() {
         scrollSet()
-//        labelSet(title: titleExam, link: linkExam, text: textExam)
+        self.backgroundColor = UIColor.white
+        
         textContentResizeView = UIView(frame: CGRect(x: self.frame.width - 30, y: 10, width: 25, height: 25))
         textContentResizeView.backgroundColor = UIColor.white
         contentScrollView.addSubview(textContentResizeView)
@@ -86,17 +87,25 @@ extension TextContentView: UIGestureRecognizerDelegate {
         if contentStatus == .hide {
             contentStatus = .show
             
-            UIView.animate(withDuration: 0.5, animations: {
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 400, width: (self.superview?.frame.width)!, height: 400)
+//                self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+//                })
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 400, width: (self.superview?.frame.width)!, height: 400)
                 self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-                })
+            })
         } else {
             contentStatus = .hide
-            
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: [], animations: {
                 self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 100, width: (self.superview?.frame.width)!, height: 100)
                 self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
             })
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.frame = CGRect(x: 0, y: (self.superview?.frame.height)! - 100, width: (self.superview?.frame.width)!, height: 100)
+//                self.contentScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+//            })
         }
     }
     
@@ -106,7 +115,6 @@ extension TextContentView: UIGestureRecognizerDelegate {
 
         let webView = UIWebView(frame: webViewController.view.frame)
         webViewController.view.addSubview(webView)
-        print(linkLable.text!)
         webView.loadRequest(URLRequest(url: URL(string: linkLable.text!)!))
         
         parentVC?.show(webViewController, sender: nil)
