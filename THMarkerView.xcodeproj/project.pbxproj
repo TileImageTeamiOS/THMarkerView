@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		04274AEC202494120084DED0 /* THMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THMarkerView.swift; sourceTree = "<group>"; };
 		04274AEE202494290084DED0 /* THMarkerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THMarkerViewDelegate.swift; sourceTree = "<group>"; };
-		4E2F840E1FF9DB2E00511B4C /* ScrollViewMarker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewMarker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2F840E1FF9DB2E00511B4C /* THMarkerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THMarkerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2F84111FF9DB2E00511B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2F84131FF9DB2E00511B4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E2F84161FF9DB2E00511B4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		4E2F84051FF9DB2E00511B4C = {
 			isa = PBXGroup;
 			children = (
-				4E2F84101FF9DB2E00511B4C /* ScrollViewMarker */,
+				4E2F84101FF9DB2E00511B4C /* THMarkerView */,
 				4E2F840F1FF9DB2E00511B4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		4E2F840F1FF9DB2E00511B4C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E2F840E1FF9DB2E00511B4C /* ScrollViewMarker.app */,
+				4E2F840E1FF9DB2E00511B4C /* THMarkerView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E2F84101FF9DB2E00511B4C /* ScrollViewMarker */ = {
+		4E2F84101FF9DB2E00511B4C /* THMarkerView */ = {
 			isa = PBXGroup;
 			children = (
 				4E2F84201FF9DB2E00511B4C /* Info.plist */,
@@ -67,15 +67,15 @@
 				04274AEC202494120084DED0 /* THMarkerView.swift */,
 				04274AEE202494290084DED0 /* THMarkerViewDelegate.swift */,
 			);
-			path = ScrollViewMarker;
+			path = THMarkerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E2F840D1FF9DB2E00511B4C /* ScrollViewMarker */ = {
+		4E2F840D1FF9DB2E00511B4C /* THMarkerView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E2F84231FF9DB2E00511B4C /* Build configuration list for PBXNativeTarget "ScrollViewMarker" */;
+			buildConfigurationList = 4E2F84231FF9DB2E00511B4C /* Build configuration list for PBXNativeTarget "THMarkerView" */;
 			buildPhases = (
 				4E2F840A1FF9DB2E00511B4C /* Sources */,
 				4E2F840B1FF9DB2E00511B4C /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = ScrollViewMarker;
+			name = THMarkerView;
 			productName = ScrollViewMarker;
-			productReference = 4E2F840E1FF9DB2E00511B4C /* ScrollViewMarker.app */;
+			productReference = 4E2F840E1FF9DB2E00511B4C /* THMarkerView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4E2F84091FF9DB2E00511B4C /* Build configuration list for PBXProject "ScrollViewMarker" */;
+			buildConfigurationList = 4E2F84091FF9DB2E00511B4C /* Build configuration list for PBXProject "THMarkerView" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E2F840D1FF9DB2E00511B4C /* ScrollViewMarker */,
+				4E2F840D1FF9DB2E00511B4C /* THMarkerView */,
 			);
 		};
 /* End PBXProject section */
@@ -285,10 +285,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4TX5PVNK4;
-				INFOPLIST_FILE = ScrollViewMarker/Info.plist;
+				INFOPLIST_FILE = THMarkerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.ScrollViewMarker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.THMarkerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -303,10 +303,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4TX5PVNK4;
-				INFOPLIST_FILE = ScrollViewMarker/Info.plist;
+				INFOPLIST_FILE = THMarkerView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.ScrollViewMarker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.THMarkerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E2F84091FF9DB2E00511B4C /* Build configuration list for PBXProject "ScrollViewMarker" */ = {
+		4E2F84091FF9DB2E00511B4C /* Build configuration list for PBXProject "THMarkerView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E2F84211FF9DB2E00511B4C /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E2F84231FF9DB2E00511B4C /* Build configuration list for PBXNativeTarget "ScrollViewMarker" */ = {
+		4E2F84231FF9DB2E00511B4C /* Build configuration list for PBXNativeTarget "THMarkerView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E2F84241FF9DB2E00511B4C /* Debug */,

@@ -10,15 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
+    var imageView = UIImageView()
     
     var markerArray = [THMarkerView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageView.image = UIImage(named: "bench.png")
+        scrollView.addSubview(imageView)
         let marker = THMarkerView()
-        marker.frame.size =  CGSize(width: 30, height: 30)
+        marker.frame.size =  CGSize(width: 20, height: 20)
         marker.set(origin: CGPoint(x:1500, y:1500), zoomScale: 2.0, scrollView: scrollView)
         marker.setImage(markerImage: UIImage(named: "marker.png")!)
         marker.delegate = self
