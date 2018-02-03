@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         scrollView.addSubview(imageView)
         let marker = THMarkerView()
         marker.frame.size =  CGSize(width: 20, height: 20)
+        marker.frame.origin = CGPoint(x:1500, y:1500)
         marker.set(origin: CGPoint(x:1500, y:1500), zoomScale: 2.0, scrollView: scrollView)
         marker.setImage(markerImage: UIImage(named: "marker.png")!)
         marker.delegate = self
@@ -71,7 +72,7 @@ extension ViewController: UIScrollViewDelegate {
 }
 extension ViewController: THMarkerViewDelegate {
     func tapEvent(marker: THMarkerView) {
+        
     }
-
 }
 
