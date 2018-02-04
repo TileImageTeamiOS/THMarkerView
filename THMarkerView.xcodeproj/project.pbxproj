@@ -14,7 +14,18 @@
 		4E2F84171FF9DB2E00511B4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2F84151FF9DB2E00511B4C /* Main.storyboard */; };
 		4E2F841C1FF9DB2E00511B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2F841B1FF9DB2E00511B4C /* Assets.xcassets */; };
 		4E2F841F1FF9DB2E00511B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2F841D1FF9DB2E00511B4C /* LaunchScreen.storyboard */; };
+		4EF630B32026D8B40044E6A8 /* THMarkerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF630B22026D8B40044E6A8 /* THMarkerViewTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4EF630B52026D8B40044E6A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2F84061FF9DB2E00511B4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E2F840D1FF9DB2E00511B4C;
+			remoteInfo = THMarkerView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04274AEC202494120084DED0 /* THMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THMarkerView.swift; sourceTree = "<group>"; };
@@ -26,10 +37,20 @@
 		4E2F841B1FF9DB2E00511B4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2F841E1FF9DB2E00511B4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2F84201FF9DB2E00511B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EF630B02026D8B40044E6A8 /* THMarkerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THMarkerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EF630B22026D8B40044E6A8 /* THMarkerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THMarkerViewTests.swift; sourceTree = "<group>"; };
+		4EF630B42026D8B40044E6A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4E2F840B1FF9DB2E00511B4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EF630AD2026D8B40044E6A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				4E2F84101FF9DB2E00511B4C /* THMarkerView */,
+				4EF630B12026D8B40044E6A8 /* THMarkerViewTests */,
 				4E2F840F1FF9DB2E00511B4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4E2F840E1FF9DB2E00511B4C /* THMarkerView.app */,
+				4EF630B02026D8B40044E6A8 /* THMarkerViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,10 +87,27 @@
 				4E2F84151FF9DB2E00511B4C /* Main.storyboard */,
 				4E2F841D1FF9DB2E00511B4C /* LaunchScreen.storyboard */,
 				4E2F84131FF9DB2E00511B4C /* ViewController.swift */,
+				4EF630AB2026D7FD0044E6A8 /* THMakerView */,
+			);
+			path = THMarkerView;
+			sourceTree = "<group>";
+		};
+		4EF630AB2026D7FD0044E6A8 /* THMakerView */ = {
+			isa = PBXGroup;
+			children = (
 				04274AEC202494120084DED0 /* THMarkerView.swift */,
 				04274AEE202494290084DED0 /* THMarkerViewDelegate.swift */,
 			);
-			path = THMarkerView;
+			path = THMakerView;
+			sourceTree = "<group>";
+		};
+		4EF630B12026D8B40044E6A8 /* THMarkerViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				4EF630B22026D8B40044E6A8 /* THMarkerViewTests.swift */,
+				4EF630B42026D8B40044E6A8 /* Info.plist */,
+			);
+			path = THMarkerViewTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +130,24 @@
 			productReference = 4E2F840E1FF9DB2E00511B4C /* THMarkerView.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4EF630AF2026D8B40044E6A8 /* THMarkerViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EF630B72026D8B40044E6A8 /* Build configuration list for PBXNativeTarget "THMarkerViewTests" */;
+			buildPhases = (
+				4EF630AC2026D8B40044E6A8 /* Sources */,
+				4EF630AD2026D8B40044E6A8 /* Frameworks */,
+				4EF630AE2026D8B40044E6A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4EF630B62026D8B40044E6A8 /* PBXTargetDependency */,
+			);
+			name = THMarkerViewTests;
+			productName = THMarkerViewTests;
+			productReference = 4EF630B02026D8B40044E6A8 /* THMarkerViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -103,6 +161,11 @@
 					4E2F840D1FF9DB2E00511B4C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					4EF630AF2026D8B40044E6A8 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4E2F840D1FF9DB2E00511B4C;
 					};
 				};
 			};
@@ -120,6 +183,7 @@
 			projectRoot = "";
 			targets = (
 				4E2F840D1FF9DB2E00511B4C /* THMarkerView */,
+				4EF630AF2026D8B40044E6A8 /* THMarkerViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +196,13 @@
 				4E2F841F1FF9DB2E00511B4C /* LaunchScreen.storyboard in Resources */,
 				4E2F841C1FF9DB2E00511B4C /* Assets.xcassets in Resources */,
 				4E2F84171FF9DB2E00511B4C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EF630AE2026D8B40044E6A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +220,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EF630AC2026D8B40044E6A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EF630B32026D8B40044E6A8 /* THMarkerViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EF630B62026D8B40044E6A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E2F840D1FF9DB2E00511B4C /* THMarkerView */;
+			targetProxy = 4EF630B52026D8B40044E6A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4E2F84151FF9DB2E00511B4C /* Main.storyboard */ = {
@@ -314,6 +401,38 @@
 			};
 			name = Release;
 		};
+		4EF630B82026D8B40044E6A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				INFOPLIST_FILE = THMarkerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.THMarkerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/THMarkerView.app/THMarkerView";
+			};
+			name = Debug;
+		};
+		4EF630B92026D8B40044E6A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				INFOPLIST_FILE = THMarkerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.THMarkerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/THMarkerView.app/THMarkerView";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +450,15 @@
 			buildConfigurations = (
 				4E2F84241FF9DB2E00511B4C /* Debug */,
 				4E2F84251FF9DB2E00511B4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EF630B72026D8B40044E6A8 /* Build configuration list for PBXNativeTarget "THMarkerViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EF630B82026D8B40044E6A8 /* Debug */,
+				4EF630B92026D8B40044E6A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

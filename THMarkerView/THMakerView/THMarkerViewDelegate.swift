@@ -6,7 +6,10 @@
 //  Copyright © 2018년 Seong ho Hong. All rights reserved.
 //
 
-protocol THMarkerViewDelegate {
+import Foundation
+
+public protocol THMarkerViewDelegate: AnyObject {
+    
     func tapEvent(marker: THMarkerView)
 }
 

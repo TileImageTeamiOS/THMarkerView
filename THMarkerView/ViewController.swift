@@ -18,11 +18,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         imageView.image = UIImage(named: "bench.png")
         scrollView.addSubview(imageView)
+        
+        
         let marker = THMarkerView()
+        
+        /// The `THMarkerView` is mark in UIScrollView.
+        /// and if click the mark, scrollview have zoomed on the mark
+        ///
+        /// so mark has zoomScale, when click mark zoom to zoomScale, destinationRect
         marker.frame.size =  CGSize(width: 20, height: 20)
         marker.set(origin: CGPoint(x:1500, y:1500), zoomScale: 2.0, scrollView: scrollView)
         marker.setImage(markerImage: UIImage(named: "marker.png")!)
+        
+        /// if you make many 'THMarkerView', can check identifier by index
+        /// and when you can implement click evnet by 'THMarkerViewDelegate'
         marker.delegate = self
+        
+        /// and you have many `THMarkerView`, you can controll by index
         marker.index = markerArray.count
         markerArray.append(marker)
         
@@ -64,14 +76,16 @@ extension ViewController: UIScrollViewDelegate {
         return imageView
     }
     public func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        /// you must implement this code!
         markerArray.map { marker in
             marker.framSet()
         }
     }
 }
 extension ViewController: THMarkerViewDelegate {
+    /// you can add event tap
     func tapEvent(marker: THMarkerView) {
+        
     }
-
 }
 
