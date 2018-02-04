@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         ///
         /// so mark has zoomScale, when click mark zoom to zoomScale, destinationRect
         marker.frame.size =  CGSize(width: 20, height: 20)
-        marker.frame.origin = CGPoint(x:1500, y:1500)
         marker.set(origin: CGPoint(x:1500, y:1500), zoomScale: 2.0, scrollView: scrollView)
         marker.setImage(markerImage: UIImage(named: "marker.png")!)
         
@@ -77,6 +76,7 @@ extension ViewController: UIScrollViewDelegate {
         return imageView
     }
     public func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        /// you must implement this code!
         markerArray.map { marker in
             marker.framSet()
         }
