@@ -87,18 +87,18 @@
 				4E2F84151FF9DB2E00511B4C /* Main.storyboard */,
 				4E2F841D1FF9DB2E00511B4C /* LaunchScreen.storyboard */,
 				4E2F84131FF9DB2E00511B4C /* ViewController.swift */,
-				4EF630AB2026D7FD0044E6A8 /* THMakerView */,
+				4EF630AB2026D7FD0044E6A8 /* THMarkerView */,
 			);
 			path = THMarkerView;
 			sourceTree = "<group>";
 		};
-		4EF630AB2026D7FD0044E6A8 /* THMakerView */ = {
+		4EF630AB2026D7FD0044E6A8 /* THMarkerView */ = {
 			isa = PBXGroup;
 			children = (
 				04274AEC202494120084DED0 /* THMarkerView.swift */,
 				04274AEE202494290084DED0 /* THMarkerViewDelegate.swift */,
 			);
-			path = THMakerView;
+			path = THMarkerView;
 			sourceTree = "<group>";
 		};
 		4EF630B12026D8B40044E6A8 /* THMarkerViewTests */ = {
