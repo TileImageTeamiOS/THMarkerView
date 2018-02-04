@@ -11,11 +11,6 @@ import UIKit
 open class THMarkerView: UIView {
     
     // MARK: - Properties
-    
-    /// The `THMarkerView` is mark in UIScrollView.
-    /// and if click the mark, scrollview have zoomed on the mark
-    ///
-    /// so mark has zoomScale, when click mark zoom to zoomScale, destinationRect
     private var scrollView = UIScrollView()
     private var zoomScale = CGFloat()
     private var origin = CGPoint()
@@ -24,8 +19,6 @@ open class THMarkerView: UIView {
     /// marker has tap Gesture, and we implement tap event in `THMarkerView`
     private var markerTapGestureRecognizer = UITapGestureRecognizer()
     
-    /// if you make many 'THMarkerView', can check identifier by index
-    /// and when you can implement click evnet by 'THMarkerViewDelegate'
     open weak var delegate: THMarkerViewDelegate?
     public var index = Int()
 
@@ -58,7 +51,7 @@ open class THMarkerView: UIView {
     }
     
     func framSet() {
-        // set by scrollview change
+        // set when scrollview change, marker frame change
         self.frame = CGRect(x: self.origin.x * scrollView.zoomScale - frame.size.width/2, y: self.origin.y * scrollView.zoomScale - frame.size.height/2, width: frame.size.width, height: frame.size.height)
     }
     
@@ -78,6 +71,7 @@ open class THMarkerView: UIView {
 
 extension THMarkerView: UIGestureRecognizerDelegate {
     @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        // tap marker, scrollview zoom to destinatione rect
         zoom(duration: 3.0, delay: 0.0, initialSpringVelocity: 0.66)
         delegate?.tapEvent(marker: self)
     }
