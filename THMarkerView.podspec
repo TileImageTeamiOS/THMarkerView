@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "THMarkerView"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "create auto pilot mark in UIScrollView"
   s.description  = "THMarkerView is awesome module, that can make mark in UISrollView. when you tap to mark, UIScrollView zoom to mark center."
 
