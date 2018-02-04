@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.author             = { "Hong Seong Ho" => "grohong76@gmail.com",  'Changnam Hong' => 'hcn1519@gmail.com', 'Han JeeWoong'=>'hjw01234@gmail.com' }
 
   s.ios.deployment_target = "9.0"
-  s.source       = { :git => "https://github.com/TileImageTeamiOS/THMarkerView.git", :tag =>  s.version.to_s }
-  s.source_files  = 'THMarkerView/THMarkerView/*.swift'
-  s.frameworks = 'UIKit'
+  s.source       =  { :git => "https://github.com/TileImageTeamiOS/THMarkerView.git", :tag => s.version.to_s }
+  s.source_files  =  'THMarkerView/THMarkerView/*.swift'
+  s.frameworks =  'UIKit'
 
 end
