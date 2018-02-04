@@ -28,6 +28,7 @@ open class THMarkerView: UIView {
         self.scrollView = scrollView
         self.origin = origin
         
+        frame.origin = origin
         scrollView.addSubview(self)
         markerTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(markerViewTap(_:)))
         markerTapGestureRecognizer.delegate = self
