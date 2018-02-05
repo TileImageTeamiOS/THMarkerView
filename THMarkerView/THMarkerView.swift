@@ -16,7 +16,14 @@ open class THMarkerView: UIView {
     private var destinationRect = CGRect()
     var delegate: THMarkerViewDelegate?
     public var index = Int()
-    
+    private var duration = Double()
+    private var delay = Double()
+    private var initialSpringVelocity = CGFloat()
+    func setZoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
+        self.duration = duration
+        self.delay = delay
+        self.initialSpringVelocity = initialSpringVelocity
+    }
     func set(origin: CGPoint, zoomScale: CGFloat, scrollView: UIScrollView){
         self.zoomScale = zoomScale
         self.scrollView = scrollView
@@ -30,6 +37,12 @@ open class THMarkerView: UIView {
         destinationRect.size.height = scrollView.frame.height/zoomScale
         destinationRect.origin.x = self.origin.x - destinationRect.width/2
         destinationRect.origin.y = self.origin.y - destinationRect.height/2
+        
+        // initial zoom setting
+        duration =  3.0
+        delay = 0.0
+        initialSpringVelocity = 0.66
+        
     }
     func setImage(markerImage: UIImage){
         let width = self.frame.size.width
@@ -45,7 +58,7 @@ open class THMarkerView: UIView {
     func framSet() {
         self.frame = CGRect(x: self.origin.x * scrollView.zoomScale - frame.size.width/2, y: self.origin.y * scrollView.zoomScale - frame.size.height/2, width: frame.size.width, height: frame.size.height)
     }
-    func zoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
+    func zoom(){
         scrollView.isMultipleTouchEnabled = false
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 2.0, initialSpringVelocity: initialSpringVelocity, options: [.allowUserInteraction], animations: {
             self.scrollView.zoom(to: self.destinationRect, animated: false)
@@ -60,7 +73,7 @@ open class THMarkerView: UIView {
 }
 extension THMarkerView: UIGestureRecognizerDelegate {
     @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        zoom(duration: 3.0, delay: 0.0, initialSpringVelocity: 0.66)
+        zoom()
         delegate?.tapEvent(marker: self)
     }
 }

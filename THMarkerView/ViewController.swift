@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         let marker = THMarkerView()
         marker.frame.size =  CGSize(width: 20, height: 20)
         marker.set(origin: CGPoint(x:1500, y:1500), zoomScale: 2.0, scrollView: scrollView)
+        marker.setZoom(duration: 3.0, delay: 0.0, initialSpringVelocity: 0.66)
         marker.setImage(markerImage: UIImage(named: "marker.png")!)
         marker.delegate = self
         marker.index = markerArray.count
