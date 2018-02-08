@@ -23,7 +23,7 @@ open class THMarkerView: UIView {
     public var index = Int()
 
     // MARK: - Methods
-    func set(origin: CGPoint, zoomScale: CGFloat, scrollView: UIScrollView){
+    public func set(origin: CGPoint, zoomScale: CGFloat, scrollView: UIScrollView){
         self.zoomScale = zoomScale
         self.scrollView = scrollView
         self.origin = origin
@@ -39,7 +39,7 @@ open class THMarkerView: UIView {
         destinationRect.origin.y = self.origin.y - destinationRect.height/2
     }
     
-    func setImage(markerImage: UIImage){
+    public func setImage(markerImage: UIImage){
         let width = self.frame.size.width
         let height = self.frame.size.height
         
@@ -51,12 +51,12 @@ open class THMarkerView: UIView {
         self.sendSubview(toBack: imageViewBackground)
     }
     
-    func framSet() {
+    public func framSet() {
         // set when scrollview change, marker frame change
         self.frame = CGRect(x: self.origin.x * scrollView.zoomScale - frame.size.width/2, y: self.origin.y * scrollView.zoomScale - frame.size.height/2, width: frame.size.width, height: frame.size.height)
     }
     
-    func zoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
+    public func zoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
         scrollView.isMultipleTouchEnabled = false
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 2.0, initialSpringVelocity: initialSpringVelocity, options: [.allowUserInteraction], animations: {
             self.scrollView.zoom(to: self.destinationRect, animated: false)
