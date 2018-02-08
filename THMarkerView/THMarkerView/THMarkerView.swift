@@ -15,19 +15,24 @@ open class THMarkerView: UIView {
     private var zoomScale = CGFloat()
     private var origin = CGPoint()
     private var destinationRect = CGRect()
-    
     /// marker has tap Gesture, and we implement tap event in `THMarkerView`
     private var markerTapGestureRecognizer = UITapGestureRecognizer()
-    
-    open weak var delegate: THMarkerViewDelegate?
+    var delegate: THMarkerViewDelegate?
     public var index = Int()
-
-    // MARK: - Methods
+    private var duration = Double()
+    private var delay = Double()
+    private var initialSpringVelocity = CGFloat()
+    
+    public func setZoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
+        self.duration = duration
+        self.delay = delay
+        self.initialSpringVelocity = initialSpringVelocity
+    }
+    
     public func set(origin: CGPoint, zoomScale: CGFloat, scrollView: UIScrollView){
         self.zoomScale = zoomScale
         self.scrollView = scrollView
         self.origin = origin
-        
         frame.origin = origin
         scrollView.addSubview(self)
         markerTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(markerViewTap(_:)))
@@ -37,6 +42,12 @@ open class THMarkerView: UIView {
         destinationRect.size.height = scrollView.frame.height/zoomScale
         destinationRect.origin.x = self.origin.x - destinationRect.width/2
         destinationRect.origin.y = self.origin.y - destinationRect.height/2
+        
+        // initial zoom setting
+        duration =  3.0
+        delay = 0.0
+        initialSpringVelocity = 0.66
+        
     }
     
     public func setImage(markerImage: UIImage){
@@ -55,8 +66,7 @@ open class THMarkerView: UIView {
         // set when scrollview change, marker frame change
         self.frame = CGRect(x: self.origin.x * scrollView.zoomScale - frame.size.width/2, y: self.origin.y * scrollView.zoomScale - frame.size.height/2, width: frame.size.width, height: frame.size.height)
     }
-    
-    public func zoom(duration: Double, delay: Double, initialSpringVelocity: CGFloat){
+    public func zoom(){
         scrollView.isMultipleTouchEnabled = false
         UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 2.0, initialSpringVelocity: initialSpringVelocity, options: [.allowUserInteraction], animations: {
             self.scrollView.zoom(to: self.destinationRect, animated: false)
@@ -72,8 +82,7 @@ open class THMarkerView: UIView {
 
 extension THMarkerView: UIGestureRecognizerDelegate {
     @objc func markerViewTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        // tap marker, scrollview zoom to destinatione rect
-        zoom(duration: 3.0, delay: 0.0, initialSpringVelocity: 0.66)
+        zoom()
         delegate?.tapEvent(marker: self)
     }
 }
