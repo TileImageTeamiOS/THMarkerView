@@ -9,7 +9,6 @@
 import Foundation
 
 public protocol THMarkerViewDelegate: AnyObject {
-    
     func tapEvent(marker: THMarkerView)
 }
 

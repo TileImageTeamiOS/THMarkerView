@@ -17,7 +17,7 @@ open class THMarkerView: UIView {
     private var destinationRect = CGRect()
     /// marker has tap Gesture, and we implement tap event in `THMarkerView`
     private var markerTapGestureRecognizer = UITapGestureRecognizer()
-    var delegate: THMarkerViewDelegate?
+    public var delegate: THMarkerViewDelegate?
     public var index = Int()
     private var duration = Double()
     private var delay = Double()
